@@ -1,4 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
+import ListItem from "./components/ListItem";
+import { SAMPLE_DATA } from "./assets/data/sampleData";
 
 export default function App() {
   return (
@@ -6,7 +8,14 @@ export default function App() {
       <View style={styles.titleWrapper}>
         <Text style={styles.largeTitle}>Markets</Text>
       </View>
-      <View style={styles.divider}></View>
+      <View style={styles.divider} />
+      <ListItem
+        name={SAMPLE_DATA[0].name}
+        symbol={SAMPLE_DATA[0].symbol}
+        currentPrice={SAMPLE_DATA[0].currentPrice}
+        priceChange7Days={SAMPLE_DATA[0].priceChange7Days}
+        logoPATH={SAMPLE_DATA[0].logoPATH}
+      />
     </View>
   );
 }
@@ -14,16 +23,15 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "black",
-  },
-  largeTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "whitesmoke",
+    backgroundColor: "#fff",
   },
   titleWrapper: {
-    marginTop: 24,
+    marginTop: 80,
     paddingHorizontal: 16,
+  },
+  largeTitle: {
+    fontSize: 24,
+    fontWeight: "bold",
   },
   divider: {
     height: StyleSheet.hairlineWidth,
