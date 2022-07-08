@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View, ScrollView, SafeAreaView } from "react-native";
 import ListItem from "./components/ListItem";
 import { SAMPLE_DATA } from "./assets/data/sampleData";
+import Header from "./components/Header";
+// import Footer from "./components/Footer";
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.titleWrapper}>
-        <Text style={styles.largeTitle}>Markets</Text>
-      </View>
+      <Header />
       <View style={styles.divider} />
       <ScrollView>
         {SAMPLE_DATA.map((data, index) => (
@@ -21,6 +21,7 @@ export default function App() {
           />
         ))}
       </ScrollView>
+      {/* <Footer /> */}
     </SafeAreaView>
   );
 }
@@ -28,15 +29,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-  },
-  titleWrapper: {
-    marginTop: 40,
-    paddingHorizontal: 16,
-  },
-  largeTitle: {
-    fontSize: 24,
-    fontWeight: "bold",
+    backgroundColor: "white",
   },
   divider: {
     height: StyleSheet.hairlineWidth,

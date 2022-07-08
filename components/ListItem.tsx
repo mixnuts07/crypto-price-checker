@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
     height: 48,
     width: 48,
     resizeMode: "cover",
-    backgroundColor: "green",
   },
   rightWrapper: {
     alignItems: "flex-end",
