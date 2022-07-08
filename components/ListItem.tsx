@@ -8,6 +8,7 @@ const ListItem = ({
   priceChange7Days,
   logoPATH,
 }) => {
+  const priceChangeColor = priceChange7Days > 0 ? "green" : "red";
   return (
     <TouchableOpacity>
       <View style={styles.itemWrapper}>
@@ -16,14 +17,16 @@ const ListItem = ({
           <Image source={logoPATH} style={styles.image} />
           <View style={styles.titleWrapper}>
             <Text style={styles.title}>{name}</Text>
-            <Text style={styles.subtitle}>{symbol}</Text>
+            <Text style={styles.subtitle}>{symbol.toUpperCase()}</Text>
           </View>
         </View>
         {/* Right Side */}
         <View style={styles.rightWrapper}>
-          <Text style={styles.title}>{currentPrice}</Text>
-          <Text style={[styles.subtitle, { color: "red" }]}>
-            {priceChange7Days}
+          <Text style={styles.title}>
+            {currentPrice.toLocaleString("en-US", { currency: "USD" })}
+          </Text>
+          <Text style={[styles.subtitle, { color: priceChangeColor }]}>
+            {priceChange7Days.toFixed(2)}%
           </Text>
         </View>
       </View>
