@@ -1,13 +1,21 @@
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import React from "react";
 
+type Props = {
+  name: string;
+  symbol: string;
+  currentPrice: string;
+  priceChange7Days: number;
+  logoPATH: any;
+};
+
 const ListItem = ({
   name,
   symbol,
   currentPrice,
   priceChange7Days,
   logoPATH,
-}) => {
+}: Props): JSX.Element => {
   const priceChangeColor = priceChange7Days > 0 ? "green" : "red";
   return (
     <TouchableOpacity>
@@ -22,9 +30,7 @@ const ListItem = ({
         </View>
         {/* Right Side */}
         <View style={styles.rightWrapper}>
-          <Text style={styles.title}>
-            {currentPrice.toLocaleString("en-US", { currency: "USD" })}
-          </Text>
+          <Text style={styles.title}>{currentPrice.toLocaleString()}</Text>
           <Text style={[styles.subtitle, { color: priceChangeColor }]}>
             {priceChange7Days.toFixed(2)}%
           </Text>
