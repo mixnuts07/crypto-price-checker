@@ -1,4 +1,4 @@
-import { useRef, useMemo } from "react";
+import { useRef, useMemo, useState } from "react";
 import { StyleSheet, Text, View, ScrollView, SafeAreaView } from "react-native";
 import ListItem from "./components/ListItem";
 import { SAMPLE_DATA } from "./assets/data/sampleData";
@@ -10,13 +10,16 @@ import {
 } from "@gorhom/bottom-sheet";
 
 export default function App() {
+  const [selectedCoinData, setSelectedCoinData] = useState(null);
+
   // ref
   const bottomSheetModalRef = useRef(null);
 
   // variables
   const snapPoints = useMemo(() => ["50%"], []);
 
-  const openModal = () => {
+  const openModal = (item) => {
+    setSelectedCoinData(item);
     bottomSheetModalRef.current.present();
   };
 
@@ -30,11 +33,11 @@ export default function App() {
             <ListItem
               name={data.name}
               symbol={data.symbol}
-              currentPrice={data.currentPrice}
-              priceChange7Days={data.priceChange7Days}
-              logoPATH={data.logoPATH}
+              currentPrice={data.current_price}
+              priceChange7Days={data.price_change_percentage_7d_in_currency}
+              logoPATH={data.image}
               key={index}
-              onPress={() => openModal()}
+              onPress={() => openModal(data)}
             />
           ))}
         </ScrollView>
@@ -46,7 +49,18 @@ export default function App() {
         snapPoints={snapPoints}
         style={styles.bottomSheet}
       >
-        <Chart />
+        {selectedCoinData ? (
+          <Chart
+            currentPrice={selectedCoinData.current_price}
+            logoPATH={selectedCoinData.image}
+            name={selectedCoinData.name}
+            symbol={selectedCoinData.symbol}
+            priceChangePercentage7Days={
+              selectedCoinData.price_change_percentage_7d_in_currency
+            }
+            sparkLine={selectedCoinData?.sparkline_in_7d.price}
+          />
+        ) : null}
       </BottomSheetModal>
     </BottomSheetModalProvider>
   );

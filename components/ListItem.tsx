@@ -1,10 +1,9 @@
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
-import React from "react";
 
 type Props = {
   name: string;
   symbol: string;
-  currentPrice: string;
+  currentPrice: number;
   priceChange7Days: number;
   logoPATH: any;
   onPress: any;
@@ -30,7 +29,9 @@ const ListItem = ({
           </View>
         </View>
         <View style={styles.rightWrapper}>
-          <Text style={styles.title}>{currentPrice.toLocaleString()}</Text>
+          <Text style={styles.title}>
+            ${currentPrice.toLocaleString("en-US", { currency: "USD" })}
+          </Text>
           <Text style={[styles.subtitle, { color: priceChangeColor }]}>
             {priceChange7Days.toFixed(2)}%
           </Text>
