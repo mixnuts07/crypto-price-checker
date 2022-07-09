@@ -19,7 +19,7 @@ const Chart = ({
 }) => {
   const priceChangeColor = priceChangePercentage7Days > 0 ? "green" : "red";
 
-  const formatUSD = (value) => {
+  const formatUSD = (value: string): string => {
     "worklet";
     if (value === "") {
       return `$${currentPrice.toLocaleString("en-US", { currency: "USD" })}`;
