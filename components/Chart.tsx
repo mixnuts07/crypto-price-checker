@@ -4,7 +4,7 @@ import {
   ChartDot,
   ChartPath,
   ChartPathProvider,
-  monotoneCubicInterpolation,
+  ChartYLabel,
 } from "@rainbow-me/animated-charts";
 
 const { width: SIZE } = Dimensions.get("window");
@@ -18,6 +18,18 @@ const Chart = ({
   sparkLine,
 }) => {
   const priceChangeColor = priceChangePercentage7Days > 0 ? "green" : "red";
+
+  const formatUSD = (value) => {
+    "worklet";
+    if (value === "") {
+      return `$${currentPrice.toLocaleString("en-US", { currency: "USD" })}`;
+    }
+    const formattedValue = `$${parseFloat(value)
+      .toFixed(2)
+      .replace(/\d(?=(\d{3})+\.)/g, "$&,")}`;
+    return formattedValue;
+  };
+
   return (
     <ChartPathProvider
       data={{ points: sparkLine, smoothingStrategy: "bezier" }}
@@ -35,9 +47,10 @@ const Chart = ({
           </View>
 
           <View style={styles.lowerTitle}>
-            <Text style={styles.boldTitle}>
+            <ChartYLabel format={formatUSD} style={styles.boldTitle} />
+            {/* <Text style={styles.boldTitle}>
               ${currentPrice.toLocaleString("en-US", { currency: "USD" })}
-            </Text>
+            </Text> */}
             <Text style={(styles.title, { color: priceChangeColor })}>
               {priceChangePercentage7Days.toFixed(2)}%
             </Text>
@@ -46,7 +59,7 @@ const Chart = ({
 
         <View style={styles.chartLineWrapper}>
           <ChartPath height={SIZE / 2} stroke="black" width={SIZE} />
-          <ChartDot style={{ backgroundColor: "black" }} />
+          <ChartDot style={{ backgroundColor: "red" }} />
         </View>
       </View>
     </ChartPathProvider>

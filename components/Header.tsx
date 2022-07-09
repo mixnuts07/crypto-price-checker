@@ -28,14 +28,15 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     color: "#0011ff",
+    fontFamily: "Georgia",
   },
   iconWrapper: {
     flexDirection: "row",
   },
   icon: {
-    fontSize: 20,
+    fontSize: 25,
     marginLeft: 10,
-    color: "#0011ff",
+    color: "#000000",
   },
 });
 
