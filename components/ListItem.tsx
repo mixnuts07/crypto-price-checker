@@ -20,7 +20,6 @@ const ListItem = ({
   return (
     <TouchableOpacity>
       <View style={styles.itemWrapper}>
-        {/* Left Side */}
         <View style={styles.leftWrapper}>
           <Image source={logoPATH} style={styles.image} />
           <View style={styles.titleWrapper}>
@@ -28,7 +27,6 @@ const ListItem = ({
             <Text style={styles.subtitle}>{symbol.toUpperCase()}</Text>
           </View>
         </View>
-        {/* Right Side */}
         <View style={styles.rightWrapper}>
           <Text style={styles.title}>{currentPrice.toLocaleString()}</Text>
           <Text style={[styles.subtitle, { color: priceChangeColor }]}>
