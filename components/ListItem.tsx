@@ -7,6 +7,7 @@ type Props = {
   currentPrice: string;
   priceChange7Days: number;
   logoPATH: any;
+  onPress: any;
 };
 
 const ListItem = ({
@@ -15,10 +16,11 @@ const ListItem = ({
   currentPrice,
   priceChange7Days,
   logoPATH,
+  onPress,
 }: Props): JSX.Element => {
   const priceChangeColor = priceChange7Days > 0 ? "green" : "red";
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <View style={styles.itemWrapper}>
         <View style={styles.leftWrapper}>
           <Image source={logoPATH} style={styles.image} />
