@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView, SafeAreaView } from "react-native";
 import ListItem from "./components/ListItem";
 import { SAMPLE_DATA } from "./assets/data/sampleData";
 import Header from "./components/Header";
+import CardList from "./components/CardList";
 import Footer from "./components/Footer";
 import Chart from "./components/Chart";
 import {
@@ -29,6 +30,7 @@ export default function App() {
       <SafeAreaView style={styles.container}>
         <Header />
         <View style={styles.divider} />
+        <CardList />
         <ScrollView>
           {SAMPLE_DATA.map((data, index) => (
             <ListItem
@@ -71,13 +73,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "whitesmoke",
   },
   divider: {
-    height: StyleSheet.hairlineWidth,
     backgroundColor: "#A9ABB1",
     marginHorizontal: 16,
     marginTop: 16,
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   bottomSheet: {
     shadowColor: "#000",
