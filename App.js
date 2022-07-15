@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, ScrollView, SafeAreaView } from "react-native";
 import ListItem from "./components/ListItem";
 import { SAMPLE_DATA } from "./assets/data/sampleData";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Chart from "./components/Chart";
 import {
   BottomSheetModal,
@@ -41,6 +42,7 @@ export default function App() {
             />
           ))}
         </ScrollView>
+        <Footer />
       </SafeAreaView>
 
       <BottomSheetModal
