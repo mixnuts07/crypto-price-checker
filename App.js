@@ -27,7 +27,7 @@ export default function App() {
 
   return (
     <BottomSheetModalProvider>
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <Header />
         <View style={styles.divider} />
         <CardList />
@@ -45,7 +45,7 @@ export default function App() {
           ))}
         </ScrollView>
         <Footer />
-      </SafeAreaView>
+      </View>
 
       <BottomSheetModal
         ref={bottomSheetModalRef}

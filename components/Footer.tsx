@@ -5,10 +5,7 @@ import Icon2 from "react-native-vector-icons/Ionicons";
 
 const Footer = () => {
   return (
-    <View>
-      <Text style={{ textAlign: "center" }}>
-        --------------------------------------------------
-      </Text>
+    <View style={{ backgroundColor: "#0011ff" }}>
       <View style={styles.containerIcon}>
         <Icon name="home" style={styles.iconHome} />
         <Icon name="hearto" style={styles.icon} />
@@ -29,12 +26,12 @@ const styles = StyleSheet.create({
   iconHome: {
     fontSize: 30,
     marginLeft: 10,
-    color: "#0011ff",
+    color: "whitesmoke",
   },
   icon: {
     fontSize: 30,
     marginLeft: 10,
-    color: "#000000",
+    color: "whitesmoke",
   },
 });
 

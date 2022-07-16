@@ -18,7 +18,7 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   titleWrapper: {
-    marginTop: 40,
+    marginTop: 80,
     paddingHorizontal: 16,
     flexDirection: "row",
     justifyContent: "space-between",
