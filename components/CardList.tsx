@@ -5,34 +5,40 @@ import IconWallet from "react-native-vector-icons/Ionicons";
 const CardList = () => {
   return (
     <View style={styles.container}>
-      <IconWallet name="wallet-outline" />
-      <Text style={styles.topFont}>My Wallet</Text>
+      <View style={styles.topWrapper}>
+        <IconWallet
+          name="wallet-outline"
+          style={{ color: "whitesmoke", fontSize: 20 }}
+        />
+        <Text style={styles.topFont}>My Wallet</Text>
+      </View>
       <View style={styles.leftWrapper}>
         <Text style={styles.font}>Balance</Text>
         <Text style={styles.font}>$ 4545.45</Text>
       </View>
-      {/* <View style={styles.rightWrapper}>
+      <View style={styles.rightWrapper}>
         <Text style={styles.fontDetails}>Deposit</Text>
         <Text style={styles.fontDetails}>Withdraw</Text>
         <Text style={styles.fontDetails}>More..</Text>
-      </View> */}
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    margin: 20,
+    margin: 10,
     alignItems: "center",
     backgroundColor: "#0000ff",
     borderRadius: 10,
-    padding: 20,
-    flexDirection: "row",
+    paddingHorizontal: 10,
+    paddingVertical: 30,
+    flexDirection: "column",
     justifyContent: "space-between",
   },
-
-  leftWrapper: {},
-  rightWrapper: { flexDirection: "row" },
+  topWrapper: {
+    flexDirection: "row",
+  },
   topFont: {
     color: "whitesmoke",
     fontSize: 20,
@@ -41,6 +47,8 @@ const styles = StyleSheet.create({
 
     paddingTop: 10,
   },
+  leftWrapper: {},
+  rightWrapper: { flexDirection: "row" },
   font: {
     color: "whitesmoke",
     fontSize: 20,

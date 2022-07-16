@@ -27,12 +27,12 @@ const styles = StyleSheet.create({
     margin: 30,
   },
   iconHome: {
-    fontSize: 40,
+    fontSize: 30,
     marginLeft: 10,
     color: "#0011ff",
   },
   icon: {
-    fontSize: 40,
+    fontSize: 30,
     marginLeft: 10,
     color: "#000000",
   },
